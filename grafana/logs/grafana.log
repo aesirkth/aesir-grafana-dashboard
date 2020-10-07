@@ -1,2 +1,24 @@
 t=2020-10-07T13:08:24+0200 lvl=info msg="Shutdown started" logger=server reason="System signal: terminated"
 t=2020-10-07T13:08:24+0200 lvl=info msg="Shutdown started" logger=server reason="System signal: terminated"
+t=2020-10-07T21:49:56+0200 lvl=info msg="Starting Grafana" logger=server version=7.2.0 commit=efe4941ee3 branch=makepkg compiled=2020-09-24T19:12:54+0200
+t=2020-10-07T21:49:56+0200 lvl=info msg="Config loaded from" logger=settings file=grafana/conf/defaults.ini
+t=2020-10-07T21:49:56+0200 lvl=info msg="Config loaded from" logger=settings file=grafana/conf/custom.ini
+t=2020-10-07T21:49:56+0200 lvl=info msg="Path Home" logger=settings path=grafana/
+t=2020-10-07T21:49:56+0200 lvl=info msg="Path Data" logger=settings path=grafana/data
+t=2020-10-07T21:49:56+0200 lvl=info msg="Path Logs" logger=settings path=grafana/logs
+t=2020-10-07T21:49:56+0200 lvl=info msg="Path Plugins" logger=settings path=grafana/data/plugins
+t=2020-10-07T21:49:56+0200 lvl=info msg="Path Provisioning" logger=settings path=grafana/conf/provisioning
+t=2020-10-07T21:49:56+0200 lvl=info msg="App mode production" logger=settings
+t=2020-10-07T21:49:56+0200 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2020-10-07T21:49:56+0200 lvl=warn msg="SQLite database file has broader permissions than it should" logger=sqlstore path=grafana/data/grafana.db mode=-rwxrwxrwx expected=-rw-r-----
+t=2020-10-07T21:49:56+0200 lvl=info msg="Starting DB migrations" logger=migrator
+t=2020-10-07T21:49:56+0200 lvl=info msg="Starting plugin search" logger=plugins
+t=2020-10-07T21:49:56+0200 lvl=eror msg="can't read datasource provisioning files from directory" logger=provisioning.datasources path=grafana/conf/provisioning/datasources error="open grafana/conf/provisioning/datasources: no such file or directory"
+t=2020-10-07T21:49:56+0200 lvl=eror msg="Failed to read plugin provisioning files from directory" logger=provisioning.plugins path=grafana/conf/provisioning/plugins error="open grafana/conf/provisioning/plugins: no such file or directory"
+t=2020-10-07T21:49:56+0200 lvl=eror msg="Can't read alert notification provisioning files from directory" logger=provisioning.notifiers path=grafana/conf/provisioning/notifiers error="open grafana/conf/provisioning/notifiers: no such file or directory"
+t=2020-10-07T21:49:56+0200 lvl=eror msg="can't read dashboard provisioning files from directory" logger=provisioning.dashboard path=grafana/conf/provisioning/dashboards error="open grafana/conf/provisioning/dashboards: no such file or directory"
+t=2020-10-07T21:49:56+0200 lvl=info msg="HTTP Server Listen" logger=http.server address=[::]:3000 protocol=http subUrl= socket=
+t=2020-10-07T21:52:18+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=[::1] time_ms=4 size=88 referer="http://localhost:3000/dashboard/new?editview=dashboard_json&orgId=1"
+t=2020-10-07T21:52:29+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=[::1] time_ms=6 size=88 referer="http://localhost:3000/dashboard/new?editview=dashboard_json&orgId=1"
+t=2020-10-07T21:55:49+0200 lvl=eror msg="Data proxy error" logger=data-proxy-log userId=1 orgId=1 uname=admin path=/api/datasources/proxy/1/query remote_addr=[::1] referer="http://localhost:3000/d/K2THm7cMz/mjollnir-filtered?orgId=1&refresh=300ms" error="http: proxy error: context canceled"
+t=2020-10-07T21:55:49+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/api/datasources/proxy/1/query status=502 remote_addr=[::1] time_ms=1 size=0 referer="http://localhost:3000/d/K2THm7cMz/mjollnir-filtered?orgId=1&refresh=300ms"
