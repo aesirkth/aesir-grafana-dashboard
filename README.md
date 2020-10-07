@@ -27,4 +27,4 @@ The performance starts to degrade after a few minutes as the database grows in s
 
 Grafana doesn't really have a framerate in the traditional sense. You can configure an update frequency from the upper right drop down menu. If grafana fails to hit the targeted frequency it will stack all HTTP requests in a long queue and freeze...
 
-You can also configure how far back you want the graphs to go. Change the cut off value to something like `now() - 3m` for 3 minutes and `now() - 2m` for 2. 
+You can also configure how far back you want the graphs to go. Change the cut off value to something like `now - 3m` for 3 minutes and `now - 2m` for 2. 
