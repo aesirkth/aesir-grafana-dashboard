@@ -1,0 +1,1 @@
+This directory contains the data and the configs for grafana.

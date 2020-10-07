@@ -1,0 +1,2 @@
+t=2020-10-07T13:08:24+0200 lvl=info msg="Shutdown started" logger=server reason="System signal: terminated"
+t=2020-10-07T13:08:24+0200 lvl=info msg="Shutdown started" logger=server reason="System signal: terminated"
