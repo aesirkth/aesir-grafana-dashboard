@@ -16,6 +16,7 @@ dbClient = db.initDB()
 ser = serialWrapper.openSerial(BAUD)
 if not ser:
     print("could not open serial connection")
+    print("The microcontroller needs to be reset after every run. Try unplugging it.")
     sys.exit()
 
 #keep track of current time gathered from telemetry
