@@ -2,18 +2,27 @@
 This repository contains a potential dashboard for the rocket Mjollnir by AESIR at KTH.
 It uses Grafana and InfluxDB
 
+![](docs/dashboard.png)
+
 ## prerequisites
 Install python dependencies (and python)\
 `python -m pip install -r requirements.txt`
 
+The serial dummy uses platformio.
+
 #### linux only
 Install InfluxDB and Grafana through your package manager.
 
+### programming the teensy
+Cd to the dummy-serial directory and run `platformio run -t upload`.
+It should run on any board if you change the board in `platformio.ini`
+
 ## How to run
 ### Windows 
-run `run.bat` and hope for the best. The script assumes that python is in `PATH`, if not, just run `serial-reader/main.py` manually.
+Plug in the Teensy, run `run.bat` and hope for the best. The script assumes that python is in `PATH`, if not, just run `serial-reader/main.py` manually.
 
 ### linux
+plug in the Teensy
 run `influxd`\
 run `./run_grafana.sh`\
 run `python serial-reader/main.py`\
