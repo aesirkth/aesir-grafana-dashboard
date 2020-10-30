@@ -1,8 +1,7 @@
 import sys
 import time
 
-import serialWrapper
-import util
+from serialWrapper import SerialWrapper
 from dataFunctions import dataFunctions
 import database as db
 
@@ -12,9 +11,11 @@ BAUD = 11520
 #init database
 dbClient = db.initDB()
 
-#find and open serial connection
-ser = serialWrapper.openSerial(BAUD)
-if not ser:
+#init serial wrapper
+ser = SerialWrapper()
+e = ser.openSerial(BAUD)
+
+if e:
     print("could not open serial connection")
     print("The microcontroller needs to be reset after every run. Try unplugging it.")
     sys.exit()
@@ -24,11 +25,11 @@ flightTime = 0
 engineTime = 0
 while True:
     #test for frame separator, read one byte at a time so it aligns itself
-    if not (ord(ser.read(1)) == SEPARATOR[0] and ord(ser.read(1)) == SEPARATOR[1]):
+    if not (ser.readBytes(1) == SEPARATOR[0] and ser.readBytes(1) == SEPARATOR[1]):
         print("failed")
         continue
 
-    frameId = ord(ser.read(1))
+    frameId = ser.readBytes(1)
     data = dataFunctions[frameId](ser)
 
     #handle flight controller data
